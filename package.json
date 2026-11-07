@@ -1,0 +1,17 @@
+{
+  "name": "petstore-api-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Postman collection and Newman runs for the Swagger Petstore API",
+  "scripts": {
+    "test": "newman run collections/petstore.postman_collection.json -e environments/petstore.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export reports/index.html --reporter-htmlextra-title \"Petstore API tests\"",
+    "test:data": "newman run collections/petstore.postman_collection.json -e environments/petstore.postman_environment.json --folder \"05 Find by each status (data-driven)\" -d data/pet-statuses.csv -r cli,htmlextra --reporter-htmlextra-export reports/data-driven.html --reporter-htmlextra-title \"Petstore: find by status (data-driven)\"",
+    "test:ci": "npm test && npm run test:data"
+  },
+  "author": "Afzal Ahmed",
+  "license": "MIT",
+  "devDependencies": {
+    "newman": "^6.2.1",
+    "newman-reporter-htmlextra": "^1.23.1"
+  }
+}
