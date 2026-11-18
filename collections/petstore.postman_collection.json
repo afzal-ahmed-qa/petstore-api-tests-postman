@@ -308,7 +308,8 @@
 									"pm.test('File and metadata are acknowledged', () => {",
 									"    const { message } = pm.response.json();",
 									"    pm.expect(message).to.include('additionalMetadata: front view');",
-									"    pm.expect(message).to.include('File uploaded to ./pet-photo.png');",
+									"    // The wording changed in Nov 2026, so check the file name and size rather than the sentence",
+									"    pm.expect(message).to.match(/pet-photo\\.png, \\d+ bytes/);",
 									"});"
 								]
 							}
