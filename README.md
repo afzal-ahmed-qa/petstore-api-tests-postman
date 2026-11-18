@@ -15,18 +15,14 @@ places where the API doesn't match its own spec.
 
 The collection is split into folders that run in order:
 
-1. **Warm-up.** The public Petstore can take several seconds to answer after a quiet period, so
-   the first call just wakes it up.
-2. **Pet lifecycle.** Add a pet, read it back and check it against a JSON schema, update it with
-   PUT and with form data, upload a photo, find it by status and by tag, delete it, and confirm
-   it's gone.
-3. **Store orders.** Inventory, then place, read, cancel and re-check an order.
-4. **User lifecycle.** Create a user, log in, update the profile, log out, create users in bulk
-   with both `createWithArray` and `createWithList`, and delete everything again.
-5. **Negative cases and spec checks.** Unknown IDs, malformed JSON, wrong types, missing required
-   fields, invalid filters, invalid orders, wrong passwords.
-6. **Data-driven.** One request that checks `findByStatus` for every status listed in
-   `data/pet-statuses.csv`.
+| Folder | What it checks |
+|---|---|
+| 00 Warm-up | One call to wake the server up, since the public Petstore can be slow after a quiet period |
+| 01 Pet lifecycle | Add a pet, read it back against a JSON schema, update it with PUT and with form data, upload a photo, find it by status and tag, delete it, confirm it's gone |
+| 02 Store orders | Inventory, then place, read, cancel and re-check an order |
+| 03 User lifecycle | Create a user, log in, update the profile, log out, bulk-create users with `createWithArray` and `createWithList`, delete everything again |
+| 04 Negative cases | Unknown IDs, malformed JSON, wrong types, missing required fields, invalid filters and orders, wrong passwords |
+| 05 Data-driven | `findByStatus` for every status listed in `data/pet-statuses.csv` |
 
 All 20 endpoints in the Petstore spec are called at least once. A full run is 47 requests and
 about 150 assertions, and takes around 15 seconds.
