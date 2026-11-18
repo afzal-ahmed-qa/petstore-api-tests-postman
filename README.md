@@ -90,6 +90,8 @@ docs/           findings: where the API doesn't match its spec
 
 - [playwright-typescript-e2e-framework](https://github.com/afzal-ahmed-qa/playwright-typescript-e2e-framework):
   UI and API automation with Playwright and TypeScript.
+- [toolshop-api-tests-postman](https://github.com/afzal-ahmed-qa/toolshop-api-tests-postman):
+  the same approach on a larger API with login, roles and a checkout.
 - [manual-test-plans-ecommerce](https://github.com/afzal-ahmed-qa/manual-test-plans-ecommerce):
   test strategy, plans and defect reports for an e-commerce site and its API.
 
